@@ -158,7 +158,8 @@ header{
     place-content: center;
     background-color: darkred;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 900;
     text-decoration: none;
 }
 
@@ -198,15 +199,23 @@ figcaption{
     text-align: center;
 }
 
+@media (min-width: 769px) and (max-width: 970px) {
+    .homeLink{
+        font-size: .7rem;
+    }
+}
 @media (min-width: 577px) and (max-width: 768px) {
     .container{
-        width: 97vw;
+        width: 97vw;              
     }
     #boardGameContainer{                
         width: 90vw;                                               
         grid-template-columns: repeat(auto-fill, 125px); /* auto-fill permet de créer autant de */
         grid-template-rows: repeat(auto-fill, 125px);    /* colonnes et de lignes que le permet la taille de l'affichage */                                
-    }            
+    }  
+    .homeLink{
+        font-size: .5rem;
+    }          
 }
 @media (max-width: 576px) {
     .container{
@@ -219,6 +228,9 @@ figcaption{
     }
     .cardChoice div{
         width: 350px;
+    }
+    .homeLink{
+        font-size: .4rem;        
     }
 }
 
