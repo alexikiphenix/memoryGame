@@ -1,0 +1,225 @@
+*{
+    box-sizing: border-box;    
+    word-wrap: break-word;
+    /*font-size: 80%;*/
+ }
+    
+    /*VERSION ACTUELLE 20210222*/
+    
+    /*
+        #3AB807
+        colors : 
+        #E1E2E6 (gris clair fond des textes principaux)
+        #4480A6 (couleur des textes sur fond vert)
+        rgba(0,142,160,1) (vert, fond des textes secondaire)
+        #ddd (couleur des textes sur fond vert)
+
+
+        black: rgb(62, 62, 62); 
+        black2 : rgb("46", "46", "46");
+        black3: rgb(62, 62, 62) THE BEST
+        Orange 1: rgb(242, 129, 29);
+        Orange 2 : #e87c03 (not applied)
+        orange 3 : F2811D
+        color: rgb(242, 129, 29);    
+    */
+    
+body
+{
+    font-family: Helvetica, "Trebuchet MS", Arial, sans-serif;
+    font-weight: 100;   
+    line-height: 1.5;
+    background-color: rgba(223, 228, 234, .92); /* #dfe4ea  #F4F5F6; */   
+}
+/***********************************************************************************/
+/*************************** MEMORY CARDS *************************************/
+body{            
+    margin: 0;
+    background-color: rgb(208, 233, 204);
+}
+*{
+    box-sizing: border-box;
+}
+.container{
+    display: grid;
+    margin: auto; 
+    width: 70vw; 
+    justify-content: center;
+    text-align: center;
+    grid-template-areas:"header header header"          /* cette propriété permet de creér un template et d'y placer les zones nommées par grid-area */                       
+                        "pointsBarBox boardGame timeBarBox"
+                        "buttonsBox buttonsBox buttonsBox" 
+                        "timeElapsedBox timeElapsedBox timeElapsedBox"                              
+    ;        
+    /* border: 1px solid red;  */
+    border-radius: .2rem;    
+    background-color: white;    
+}
+header{
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+#boardGameContainer{
+    grid-area: boardGame;
+    width: 60vw;
+    display: grid;                                  
+    grid-template-columns: repeat(7, 8vw); /* 100 / 8 même taille et unité vh pour garder forme carrée */
+    grid-template-rows: repeat(4, 8vw);    /* même taille et unité vh pour garder forme carrée */
+    justify-content: center;
+    grid-gap: 5px;                  
+}
+#pointsBarBox
+{
+    grid-area: pointsBarBox;
+}
+#timeBarBox{
+    grid-area: timeBarBox;
+    transform: rotate(180deg);
+}
+
+#timeBarBox, #pointsBarBox
+{                 
+    height: 100%;
+    width: 3vw; /* pour garder la même unité */            
+    border: 1px solid black;
+    border-radius: .2rem;
+}
+/* #timeIcon{
+    position: absolute;
+    top: 50%;
+} */
+#buttonsBox
+{
+    grid-area: buttonsBox;
+    min-height: 2rem;            
+    margin-top: 2rem;
+    text-align: center;            
+}
+#timeElapsedBox /* boite pour recueillir le temps écoulé */
+{
+    grid-area: timeElapsedBox;
+    padding: .8rem;
+}
+.card{
+    width: 100%;
+    user-select: none; /* pour empêcher lamise en surbrillance lors d'une sélection */
+    opacity: 0; 
+    /* animation: anime 2s infinite;               */
+}
+.visible
+{
+    transform-origin: center center; 
+    transform: rotate(360deg);     
+    opacity: 1;    
+    transition: .3s;
+}
+
+.cardBox
+{            
+    background-color: grey;  
+    border-radius: .2rem;          
+}
+
+#timeBar, #pointsBar
+{
+    height: 0;            
+    background-color: darkred;
+}
+#pointsBar{
+    background-color: darkgreen;
+}
+#lastGame{
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+#startButton{
+    padding: 1rem 3rem 1rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: darkred;
+    border-radius: .5rem;
+}    
+
+.bestTimes h3, .bestTimes p{ 
+    margin: .2rem 0 .2rem;
+}
+
+.homeLink{
+    display: grid;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    place-content: center;
+    background-color: darkred;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+
+.intro{
+    text-align: center;
+}
+
+.cardChoice{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+}
+
+.cardChoice > div{
+    width: 30vw;
+    min-height: 30vw; /* pour avoir une forme carrée */
+    margin: 1rem;
+    background-color: white;  
+    border-radius: 1rem;  
+}
+
+.cardChoice div a, .cardChoice div img{
+    display: block;
+}
+
+.cardModel{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.txt-warning{
+    color: darkred;
+}
+
+figcaption{
+    text-align: center;
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container{
+        width: 97vw;
+    }
+    #boardGameContainer{                
+        width: 90vw;                                               
+        grid-template-columns: repeat(auto-fill, 125px); /* auto-fill permet de créer autant de */
+        grid-template-rows: repeat(auto-fill, 125px);    /* colonnes et de lignes que le permet la taille de l'affichage */                                
+    }            
+}
+@media (max-width: 576px) {
+    .container{
+        width: 97vw;
+    }
+    #boardGameContainer{                
+        width: 92vw;                                               
+        grid-template-columns: repeat(auto-fill, 100px); 
+        grid-template-rows: repeat(auto-fill, 100px);    
+    }
+    .cardChoice div{
+        width: 350px;
+    }
+}
+
+/******************************************************************************/
