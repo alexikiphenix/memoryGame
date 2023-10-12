@@ -20,7 +20,7 @@ const clic = new Audio('assets/audio/clic.mp3')
 
 
 
-
+// Juste une fonction permettant de générer un nombre entier aléatoire
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -190,8 +190,7 @@ const sendForm = (myForm) =>{
 }
 
 
-const revealCard = (e) =>{    
-     
+const revealCard = (e) =>{         
     if(!e.target.classList.contains('locked'))  //traitement sur la carte uniquement si ellen'est pas verrouillée
         {
             hideNonLockedCards();
