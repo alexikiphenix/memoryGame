@@ -68,7 +68,7 @@ const shuffleBoardGame = (boardGame) => {
     return boardGameShuffled;
 }
 
-boardGame = shuffleBoardGame(boardGame);
+let boardGame = shuffleBoardGame(boardGame);
 
 let insertBoardGame = (boardGame) => { // insère la table de jeu dans le HTML
     let id; 
